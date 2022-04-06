@@ -40,8 +40,8 @@ Check the log at /Users/daco/.cache/pre-commit/pre-commit.log
 <br>
 
 
-### 5. '.pre-commit-config.yaml' 파일을 생성하고 다음처럼 작성합니다.<br>
-(파이썬 버전은 사용하는 버전을 적어주세요.)<br>
+### 5. '.pre-commit-config.yaml' 파일을 생성하고 다음처럼 작성합니다.(예시) <br>
+(파이썬 버전은 사용하는 버전을 적어주세요.) <br>
 
 ```
 repos:
@@ -65,7 +65,9 @@ repos:
 ```
 <br>
 
-각 항목을 설명하자면 
+위에 항목은 예시입니다. <br>
+필요한 항목들은 pip install ~ 로 설치해주세요. <br>
+예시에 기재된 라이브러리를 설명하자면 다음과 같습니다. <br>
 - black : 코드 포멧터, 코드 스타일을 통일시켜 줍니다.
 - flake8 : 코드 린터, PEP8 규악을 지켰는지 검사합니다.
 - isort : 파이썬 import를 정렬해주는 라이브러리입니다.
