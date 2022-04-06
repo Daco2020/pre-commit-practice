@@ -127,18 +127,54 @@ flake8...................................................................Passed
 isort....................................................................Passed
 pyright..................................................................Passed
 ```
+
 ```
 # main.py (스타일이 올바르게 수정됨)
 
 from fastapi import FastAPI
 
-app = FastAPI()
 
+app = FastAPI()
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
 ```
 
-이 상태에서 다시
+파일이 올바르게 수정되었으므로 다시 git add . 및 git commit -m "메시지"를 수행합니다.
+
+```
+black................................................(no files to check)Skipped
+flake8...............................................(no files to check)Skipped
+isort................................................(no files to check)Skipped
+pyright..............................................(no files to check)Skipped
+```
+
+정상적으로 완료되었음을 확인할 수 있습니다.
+만약 각 항목별 커스텀이 필요하다면 다음의 파일을 생성해주세요.
+
+<br>
+
+8. setup.cfg 파일 생성
+
+setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적용됩니다.<br>
+아래는 예시입니다.<br>
+본인의 취향에 맞게 작성해주세요. <br>
+
+```
+# setup.cfg
+
+[flake8]
+exclude = .git
+max-line-length = 88
+
+[black]
+line-length = 88
+
+[isort]
+atomic = true
+line_length = 88
+lines_after_imports = 2
+lines_between_types = 1
+multi_line_output = 3
+```
