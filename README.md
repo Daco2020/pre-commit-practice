@@ -15,9 +15,9 @@
 ## pre-commit 적용 순서
 <br>
 
-1. git init <br>
-2. pip install pre-commit <br>
-3. pre-commit install  <br>
+### 1. git init <br>
+### 2. pip install pre-commit <br>
+### 3. pre-commit install  <br>
 ```
 >>> pre-commit installed at .git/hooks/pre-commit
 ```
@@ -25,7 +25,7 @@
 <br>
 <br>
 
-4. pre-commit run 
+### 4. pre-commit run 
 ```
 >>> An error has occurred: InvalidConfigError: 
 =====> .pre-commit-config.yaml is not a file
@@ -40,7 +40,7 @@ Check the log at /Users/daco/.cache/pre-commit/pre-commit.log
 <br>
 
 
-5. .pre-commit-config.yaml 파일을 생성하고 다음처럼 작성합니다.<br>
+### 5. '.pre-commit-config.yaml' 파일을 생성하고 다음처럼 작성합니다.<br>
 (파이썬 버전은 사용하는 버전을 적어주세요.)<br>
 
 ```
@@ -81,7 +81,7 @@ rev 에서 ''은 원하는 버전으로 바꿀 수 있습니다. <br>
 <br>
 
 
-6. 다시 pre-commit run
+### 6. 다시 pre-commit run
 
 ```
 black................................................(no files to check)Skipped
@@ -93,7 +93,7 @@ pyright..............................................(no files to check)Skipped
 만약 다른 결과가 나온다면 에러메시지에 따라 수정해주세요. <br>
 <br>
 
-7. 정상적으로 작동하는지 테스트를 해봅니다. <br>
+### 7. 정상적으로 작동하는지 테스트를 해봅니다. 
 
 먼저, 일부러 비정상적인 스타일을 만듭니다.
 
@@ -150,12 +150,12 @@ isort................................................(no files to check)Skipped
 pyright..............................................(no files to check)Skipped
 ```
 
-정상적으로 완료되었음을 확인할 수 있습니다.
-만약 각 항목별 커스텀이 필요하다면 다음의 파일을 생성해주세요.
+정상적으로 완료되었음을 확인할 수 있습니다.<br>
+만약 각 항목별 커스텀이 필요하다면 다음의 파일을 생성해주세요.<br>
 
 <br>
 
-8. setup.cfg 파일 생성
+### 8. setup.cfg 파일 생성
 
 setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적용됩니다.<br>
 아래는 예시입니다.<br>
@@ -166,14 +166,14 @@ setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적�
 
 [flake8]
 exclude = .git
-max-line-length = 88
+max-line-length = 80
 
 [black]
-line-length = 88
+line-length = 80
 
 [isort]
 atomic = true
-line_length = 88
+line_length = 80
 lines_after_imports = 2
 lines_between_types = 1
 multi_line_output = 3
