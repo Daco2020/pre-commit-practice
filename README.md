@@ -1,4 +1,4 @@
-# pre-commit
+# pre-commit 적용하기
 
 
 <br>
@@ -158,8 +158,7 @@ pyright..............................................(no files to check)Skipped
 ### 8. setup.cfg 파일 생성
 
 setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적용됩니다.<br>
-아래는 예시입니다.<br>
-본인의 취향에 맞게 작성해주세요. <br>
+아래는 예시입니다. 본인의 취향에 맞게 작성해주세요. <br>
 
 ```
 # setup.cfg
@@ -177,4 +176,18 @@ line_length = 80
 lines_after_imports = 2
 lines_between_types = 1
 multi_line_output = 3
+```
+
+<br>
+<br>
+
+## 샘플 디렉토리 구조
+```
+.
+├── README.md
+├── app
+│   └── main.py
+├── server.py
+├── .pre-commit-config.yaml
+└── setup.cfg
 ```
