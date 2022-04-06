@@ -15,9 +15,9 @@
 ## pre-commit 적용 순서
 <br>
 
-1 git init <br>
-2 pip install pre-commit <br>
-3 pre-commit install  <br>
+1. git init <br>
+2. pip install pre-commit <br>
+3. pre-commit install  <br>
 ```
 >>> pre-commit installed at .git/hooks/pre-commit
 ```
@@ -25,7 +25,7 @@
 <br>
 <br>
 
-4 pre-commit run 
+4. pre-commit run 
 ```
 >>> An error has occurred: InvalidConfigError: 
 =====> .pre-commit-config.yaml is not a file
@@ -40,7 +40,7 @@ Check the log at /Users/daco/.cache/pre-commit/pre-commit.log
 <br>
 
 
-5 .pre-commit-config.yaml 파일을 생성하고 다음처럼 작성합니다.<br>
+5. .pre-commit-config.yaml 파일을 생성하고 다음처럼 작성합니다.<br>
 (파이썬 버전은 사용하는 버전을 적어주세요.)<br>
 
 ```
@@ -75,11 +75,13 @@ repos:
 
 항목들은 개발자의 기호에 따라 취사선택할 수 있습니다.<br>
 필요하다고 생각하는 것들만 추가하면 됩니다.<br>
-rev 에서 ''은 원하는 버전으로 바꿀 수 있습니다. (넣지 않아도 실행됩니다.)
+rev 에서 ''은 원하는 버전으로 바꿀 수 있습니다. <br> 
+'pre-commit autoupdate'을 명령을 실행하면 자동으로 버전이 업데이트 됩니다.<br>
+
 <br>
 
 
-6 다시 pre-commit run
+6. 다시 pre-commit run
 
 ```
 black................................................(no files to check)Skipped
@@ -91,9 +93,12 @@ pyright..............................................(no files to check)Skipped
 만약 다른 결과가 나온다면 에러메시지에 따라 수정해주세요. <br>
 <br>
 
-7 정상적으로 작동하는지 테스트를 해봅니다.
+7. 정상적으로 작동하는지 테스트를 해봅니다. <br>
+
+먼저, 일부러 비정상적인 스타일을 만듭니다.
+
 ```
-예시) 일부러 비정상적인 스타일을 만듭니다.
+# main.py (스타일이 안지켜진 코드)
 
 from fastapi import FastAPI
 app = FastAPI()
@@ -102,3 +107,38 @@ async def root():
     return {"message": "Hello World"}
 ```
 
+터미널에서 다음과 같은 명령어를 실행하면 결과를 확인할 수 있습니다.
+
+```
+# 터미널
+
+>>> git add .
+>>> git commit -m "test"
+>>> black....................................................................Failed
+- hook id: black
+- files were modified by this hook
+
+reformatted app/main.py
+
+All done! ✨ 🍰 ✨
+1 file reformatted.
+
+flake8...................................................................Passed
+isort....................................................................Passed
+pyright..................................................................Passed
+```
+```
+# main.py (스타일이 올바르게 수정됨)
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+```
+
+이 상태에서 다시
