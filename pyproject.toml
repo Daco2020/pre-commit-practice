@@ -1,1 +1,11 @@
+[tool.black]
+line-length = 88
 
+[tool.pyright]
+include = ["app"]
+exclude = ["**/__pycache__"]
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonVersion = "3.8.0"
