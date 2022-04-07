@@ -156,7 +156,7 @@ pyright..............................................(no files to check)Skipped
 
 <br>
 
-### 8. setup.cfg 파일 생성
+### 8. 커스텀 파일 생성
 
 setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적용됩니다.<br>
 아래는 예시입니다. 본인의 취향에 맞게 작성해주세요. <br>
@@ -168,15 +168,33 @@ setup.cfg에 항목별로 커스텀할 내용을 적으면 그에 맞춰서 적�
 exclude = .git
 max-line-length = 80
 
-[black]
-line-length = 80
-
 [isort]
 atomic = true
 line_length = 80
 lines_after_imports = 2
 lines_between_types = 1
 multi_line_output = 3
+```
+
+<br>
+
+black, pyright 의 경우 'pyproject.toml' 파일에 작성합니다. <br>
+
+```
+# pyproject.toml
+
+[tool.black]
+line-length = 88
+
+[tool.pyright]
+include = ["ap-toy"]
+exclude = ["**/__pycache__"]
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonVersion = "3.10.0"
+
 ```
 
 <br>
@@ -190,5 +208,6 @@ multi_line_output = 3
 │   └── main.py
 ├── server.py
 ├── .pre-commit-config.yaml
+├── pyproject.toml
 └── setup.cfg
 ```
