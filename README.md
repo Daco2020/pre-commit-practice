@@ -187,7 +187,7 @@ black, pyright 의 경우 'pyproject.toml' 파일에 작성합니다. <br>
 line-length = 88
 
 [tool.pyright]
-include = ["ap-toy"]
+include = ["app"]
 exclude = ["**/__pycache__"]
 
 reportMissingImports = true
